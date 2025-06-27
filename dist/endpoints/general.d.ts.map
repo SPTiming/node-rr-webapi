@@ -1,0 +1,1 @@
+{"version":3,"file":"general.d.ts","sourceRoot":"","sources":["../../src/endpoints/general.ts"],"names":[],"mappings":"AAAA;;GAEG;AAEH,qBAAa,UAAU;IACT,OAAO,CAAC,GAAG;gBAAH,GAAG,EAAE,GAAG;IAE5B;;OAEG;IACG,OAAO,IAAI,OAAO,CAAC,GAAG,CAAC;IAI7B;;OAEG;IACG,IAAI,IAAI,OAAO,CAAC,MAAM,CAAC;IAI7B;;OAEG;IACG,UAAU,IAAI,OAAO,CAAC,GAAG,CAAC;CAGjC"}
