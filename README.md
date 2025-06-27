@@ -53,7 +53,7 @@ For detailed documentation and examples, visit the [examples](./examples/) direc
 
 ## License
 
-MIT © SPTiming
+GPL-3.0 © SPTiming
 
 ## Support
 
