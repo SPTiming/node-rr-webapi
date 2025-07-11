@@ -66,16 +66,14 @@ class EventApi {
         return this.api.post(this.eventId, endpoint, params, data, contentType);
     }
     /**
-     * Execute multiple requests in parallel
+     * Execute multiple requests in a single call using server-side batching
+     *
+     * @param requests Array of request URIs (e.g., ["contests/get", "data/count", "part/getfields?bib=1&fields=[\"FirstName\"]"])
+     * @returns Object with results for each request, keyed by request URI
      */
     async multiRequest(requests) {
-        const promises = requests.map(req => {
-            if (req.method === 'POST') {
-                return this.post(req.endpoint, req.params, req.data);
-            }
-            return this.get(req.endpoint, req.params);
-        });
-        return Promise.all(promises);
+        // Go format: send requests array directly with explicit JSON content type
+        return this.post('multirequest', undefined, requests, 'application/json');
     }
 }
 exports.EventApi = EventApi;

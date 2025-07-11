@@ -46,13 +46,11 @@ export declare class EventApi {
      */
     post<T = any>(endpoint: string, params?: Record<string, any>, data?: any, contentType?: string): Promise<T>;
     /**
-     * Execute multiple requests in parallel
+     * Execute multiple requests in a single call using server-side batching
+     *
+     * @param requests Array of request URIs (e.g., ["contests/get", "data/count", "part/getfields?bib=1&fields=[\"FirstName\"]"])
+     * @returns Object with results for each request, keyed by request URI
      */
-    multiRequest<T = any>(requests: Array<{
-        endpoint: string;
-        params?: Record<string, any>;
-        method?: 'GET' | 'POST';
-        data?: any;
-    }>): Promise<T[]>;
+    multiRequest(requests: string[]): Promise<Record<string, any>>;
 }
 //# sourceMappingURL=event.d.ts.map
