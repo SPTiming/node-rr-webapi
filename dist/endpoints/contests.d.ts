@@ -24,5 +24,9 @@ export declare class ContestsApi {
      * Delete contest
      */
     delete(id: number): Promise<void>;
+    /**
+     * Get contests as PDF
+     */
+    getPdf(): Promise<Buffer>;
 }
 //# sourceMappingURL=contests.d.ts.map

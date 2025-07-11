@@ -12,32 +12,38 @@ class ContestsApi {
      * Get all contests
      */
     async list() {
-        const response = await this.eventApi.get('contests');
+        const response = await this.eventApi.get('contests/get');
         return Array.isArray(response) ? response : [];
     }
     /**
      * Get contest by ID
      */
     async getById(id) {
-        return this.eventApi.get(`contests/${id}`);
+        return this.eventApi.get('contests/get', { id });
     }
     /**
      * Create new contest
      */
     async create(contestData) {
-        return this.eventApi.post('contests', undefined, contestData);
+        return this.eventApi.post('contests/save', undefined, contestData);
     }
     /**
      * Update contest
      */
     async update(id, contestData) {
-        return this.eventApi.post(`contests/${id}`, undefined, contestData);
+        return this.eventApi.post('contests/save', { oldID: id }, contestData);
     }
     /**
      * Delete contest
      */
     async delete(id) {
-        await this.eventApi.post(`contests/${id}/delete`);
+        await this.eventApi.get('contests/delete', { id });
+    }
+    /**
+     * Get contests as PDF
+     */
+    async getPdf() {
+        return this.eventApi.get('contests/pdf');
     }
 }
 exports.ContestsApi = ContestsApi;
