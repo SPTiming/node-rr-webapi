@@ -65,6 +65,23 @@ class RawDataApi {
     async delete(id) {
         await this.eventApi.post(`rawdata/${id}/delete`);
     }
+    /**
+     * Add a raw data entry manually
+     * @param timingPoint - Name of the timing point
+     * @param identifierName - Type of identifier ('bib' or 'pid')
+     * @param identifierValue - Value of the identifier (bib number or participant ID)
+     * @param time - Time value (in decimal seconds)
+     * @param addT0 - Whether to add T0 (start time offset)
+     */
+    async addManual(timingPoint, identifierName, identifierValue, time, addT0 = false) {
+        const params = {
+            timingPoint,
+            [identifierName]: identifierValue,
+            time,
+            addT0
+        };
+        await this.eventApi.get('rawdata/addmanual', params);
+    }
 }
 exports.RawDataApi = RawDataApi;
 //# sourceMappingURL=rawdata.js.map
