@@ -42,6 +42,22 @@ export class ContestsApi {
   }
 
   /**
+   * Save contest (create or update)
+   * @param contest - Contest data object  
+   * @param version - Version number for optimistic locking
+   * @returns Contest ID of the saved contest
+   */
+  async save(contest: any, version: number = 0): Promise<number> {
+    const data = { ...contest };
+    if (version > 0) {
+      data.Version = version;
+    }
+    
+    const response = await this.eventApi.post('contests/save', undefined, data);
+    return parseInt(String(response), 10);
+  }
+
+  /**
    * Get contests as PDF
    */
   async getPdf(): Promise<Buffer> {

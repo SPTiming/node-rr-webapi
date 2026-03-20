@@ -54,9 +54,36 @@ export class ParticipantsApi {
   }
 
   /**
-   * Delete participant
+   * Delete participant by ID
    */
   async delete(id: number): Promise<void> {
     await this.eventApi.post(`participants/${id}/delete`);
+  }
+
+  /**
+   * Delete participants by filter (bulk delete)
+   * @param filter - Filter expression for participants to delete
+   * @param bib - Specific bib number to delete (alternative to filter) 
+   * @param version - Version for optimistic locking
+   */
+  async deleteByFilter(filter: string, bib: number = 0, version: number = 0): Promise<void> {
+    const params = {
+      filter,
+      bib,
+      version
+    };
+    await this.eventApi.get('part/delete', params);
+  }
+
+  /**
+   * Save multiple participants
+   * @param participants - Array of participant data objects
+   * @param noHistory - Whether to skip adding entries to the history
+   */
+  async save(participants: any[], noHistory: boolean = false): Promise<void> {
+    const params = {
+      noHistory
+    };
+    await this.eventApi.post('part/savefields', params, participants);
   }
 }
