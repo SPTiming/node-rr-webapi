@@ -6,6 +6,16 @@ export interface Identifier {
   [key: string]: number;
 }
 
+/** Response from part/new (v2). Field names may include PID, Bib, or ID depending on API version. */
+export interface ParticipantNewResponse {
+  /** Participant database id */
+  PID?: number;
+  /** Assigned bib */
+  Bib?: number;
+  ID?: number;
+  [key: string]: unknown;
+}
+
 export class ParticipantsApi {
   constructor(private eventApi: any) {}
 
@@ -73,6 +83,23 @@ export class ParticipantsApi {
       version
     };
     await this.eventApi.get('part/delete', params);
+  }
+
+  /**
+   * Create a new participant with automatic bib (GET part/new, same as Go Participants.New).
+   * Use bib=0 and firstFree=true to let the server assign the next free bib; response includes new PID/ID and Bib.
+   */
+  async newParticipant(
+    contest: number,
+    firstFree: boolean = true,
+    preferredBib: number = 0
+  ): Promise<ParticipantNewResponse> {
+    return this.eventApi.get('part/new', {
+      bib: preferredBib,
+      contest,
+      firstfree: firstFree,
+      v2: true,
+    }) as Promise<ParticipantNewResponse>;
   }
 
   /**
