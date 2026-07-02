@@ -77,3 +77,53 @@ export interface RequestConfig {
   data?: any;
   contentType?: string | undefined;
 }
+
+export interface Identifier {
+  [key: string]: number;
+}
+
+export function bib(value: number): Identifier {
+  return { bib: value };
+}
+
+export function pid(value: number): Identifier {
+  return { pid: value };
+}
+
+export interface Result {
+  ID: number;
+  Name: string;
+  Formula?: string;
+  TimeFormat?: string;
+  Location?: string;
+  TimeRounding?: number;
+}
+
+export interface SaveValueArrayItem {
+  Bib?: number;
+  PID?: number;
+  FieldName: string;
+  Value: unknown;
+}
+
+export interface ParticipantNewResponse {
+  ID: number;
+  Bib: number;
+  PID?: number;
+  [key: string]: unknown;
+}
+
+export interface EntryFeeItem {
+  ID: number;
+  Name: string;
+  Fee: unknown;
+  Field: string;
+  Tax: unknown;
+  Multiplication: unknown;
+}
+
+export interface ImportResult {
+  Added: number;
+  Updated: number;
+  PIDs: number[];
+}

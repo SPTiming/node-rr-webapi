@@ -7,6 +7,7 @@ import { ParticipantsApi } from './participants';
 import { ContestsApi } from './contests';
 import { RawDataApi } from './rawdata';
 import { AgeGroupsApi } from './agegroups';
+import { ResultsApi } from './results';
 
 export class EventApi {
   private _data: DataApi;
@@ -14,6 +15,7 @@ export class EventApi {
   private _contests: ContestsApi;
   private _rawData: RawDataApi;
   private _ageGroups: AgeGroupsApi;
+  private _results: ResultsApi;
 
   constructor(
     private eventId: string,
@@ -24,6 +26,7 @@ export class EventApi {
     this._contests = new ContestsApi(this);
     this._rawData = new RawDataApi(this);
     this._ageGroups = new AgeGroupsApi(this);
+    this._results = new ResultsApi(this);
   }
 
   /**
@@ -73,6 +76,13 @@ export class EventApi {
    */
   ageGroups(): AgeGroupsApi {
     return this._ageGroups;
+  }
+
+  /**
+   * Get results endpoints
+   */
+  results(): ResultsApi {
+    return this._results;
   }
 
   /**

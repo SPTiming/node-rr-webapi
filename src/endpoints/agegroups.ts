@@ -2,7 +2,7 @@
  * Age Groups API endpoints for RaceResult Web API
  */
 
-import type { Identifier } from './participants';
+import type { Identifier } from '../types';
 
 export interface AgeGroup {
   [key: string]: unknown;
