@@ -127,3 +127,10 @@ export interface ImportResult {
   Updated: number;
   PIDs: number[];
 }
+
+export interface SimpleAPIItem {
+  Disabled: boolean;
+  Key: string;
+  URL: string;
+  Label: string;
+}

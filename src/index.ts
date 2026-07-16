@@ -15,6 +15,7 @@ export { GeneralApi } from './endpoints/general';
 export { DataApi } from './endpoints/data';
 export { ParticipantsApi } from './endpoints/participants';
 export { ResultsApi } from './endpoints/results';
+export { SimpleApi, generateSimpleApiKey } from './endpoints/simpleapi';
 export { ContestsApi } from './endpoints/contests';
 export { RawDataApi } from './endpoints/rawdata';
 export { AgeGroupsApi, type AgeGroup } from './endpoints/agegroups';
