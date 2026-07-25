@@ -9,6 +9,8 @@ import { RawDataApi } from './rawdata';
 import { AgeGroupsApi } from './agegroups';
 import { ResultsApi } from './results';
 import { SimpleApi } from './simpleapi';
+import { WebHooksApi } from './webhooks';
+import { RankingsApi } from './rankings';
 
 export class EventApi {
   private _data: DataApi;
@@ -18,6 +20,8 @@ export class EventApi {
   private _ageGroups: AgeGroupsApi;
   private _results: ResultsApi;
   private _simpleApi: SimpleApi;
+  private _webhooks: WebHooksApi;
+  private _rankings: RankingsApi;
 
   constructor(
     private eventId: string,
@@ -30,6 +34,8 @@ export class EventApi {
     this._ageGroups = new AgeGroupsApi(this);
     this._results = new ResultsApi(this);
     this._simpleApi = new SimpleApi(this);
+    this._webhooks = new WebHooksApi(this);
+    this._rankings = new RankingsApi(this);
   }
 
   /**
@@ -93,6 +99,20 @@ export class EventApi {
    */
   simpleApi(): SimpleApi {
     return this._simpleApi;
+  }
+
+  /**
+   * Get WebHooks endpoints
+   */
+  webhooks(): WebHooksApi {
+    return this._webhooks;
+  }
+
+  /**
+   * Get Rankings endpoints
+   */
+  rankings(): RankingsApi {
+    return this._rankings;
   }
 
   /**

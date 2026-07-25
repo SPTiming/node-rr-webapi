@@ -134,3 +134,29 @@ export interface SimpleAPIItem {
   URL: string;
   Label: string;
 }
+
+/** 0=ParticipantNew, 1=ParticipantUpdated, 2=RawDataNew, 3=ModJobID, 4=ModJobIDSettings */
+export type WebHookType = 0 | 1 | 2 | 3 | 4;
+
+export interface WebHook {
+  ID: number;
+  Disabled: boolean;
+  Name: string;
+  Type: WebHookType | number;
+  URL: string;
+  Fields: string[];
+  Filter: string;
+  OrderPos: number;
+}
+
+export interface Ranking {
+  ID: number;
+  Name: string;
+  Group: string[];
+  Sort: string[];
+  SortDesc: boolean[];
+  UseTies: boolean;
+  ContestSort: boolean;
+  Filter: string;
+  GroupName: string;
+}
