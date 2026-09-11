@@ -160,3 +160,48 @@ export interface Ranking {
   Filter: string;
   GroupName: string;
 }
+
+export interface TeamScore {
+  ID: number;
+  ResultID1: number;
+  ResultID2: number;
+  ResultID3: number;
+  ResultID4: number;
+  ResultMode1: number;
+  ResultMode2: number;
+  ResultMode3: number;
+  ResultMode4: number;
+  SortDesc1: boolean;
+  SortDesc2: boolean;
+  SortDesc3: boolean;
+  RealTime: boolean;
+  MinTotal: number;
+  MaxTotal: number;
+  MinFemale: number;
+  MaxFemale: number;
+  MaxTeams: number;
+  Filter: string;
+  TimeFormat: string;
+  LapTimes: number;
+  LapTimesLemans: boolean;
+  LapTimesZeroStart: boolean;
+  Name: string;
+  LapModeLocation: string;
+  TeamSort: string;
+  Assigning1: string;
+  Grouping1: string;
+  Assigning2: string;
+  Grouping2: string;
+  Assigning3: string;
+  Grouping3: string;
+  Assigning4: string;
+  Grouping4: string;
+  UseTies: boolean;
+  LapTimesSubtractT0: boolean;
+  LapTimesCountLemansAsLap: boolean;
+  LapTimesPenaltyTimeResult: number;
+  LapTimesPenaltyLapsResult: number;
+  LapTimesMinLapTime: number;
+  LapTimesIgnoreBefore: number;
+  LapTimesIgnoreAfter: number;
+}

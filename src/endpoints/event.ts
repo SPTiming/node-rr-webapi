@@ -11,6 +11,7 @@ import { ResultsApi } from './results';
 import { SimpleApi } from './simpleapi';
 import { WebHooksApi } from './webhooks';
 import { RankingsApi } from './rankings';
+import { TeamScoresApi } from './teamscores';
 
 export class EventApi {
   private _data: DataApi;
@@ -22,6 +23,7 @@ export class EventApi {
   private _simpleApi: SimpleApi;
   private _webhooks: WebHooksApi;
   private _rankings: RankingsApi;
+  private _teamScores: TeamScoresApi;
 
   constructor(
     private eventId: string,
@@ -36,6 +38,7 @@ export class EventApi {
     this._simpleApi = new SimpleApi(this);
     this._webhooks = new WebHooksApi(this);
     this._rankings = new RankingsApi(this);
+    this._teamScores = new TeamScoresApi(this);
   }
 
   /**
@@ -113,6 +116,13 @@ export class EventApi {
    */
   rankings(): RankingsApi {
     return this._rankings;
+  }
+
+  /**
+   * Get TeamScores endpoints
+   */
+  teamScores(): TeamScoresApi {
+    return this._teamScores;
   }
 
   /**

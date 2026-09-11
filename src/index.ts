@@ -18,6 +18,7 @@ export { ResultsApi } from './endpoints/results';
 export { SimpleApi, generateSimpleApiKey } from './endpoints/simpleapi';
 export { WebHooksApi } from './endpoints/webhooks';
 export { RankingsApi } from './endpoints/rankings';
+export { TeamScoresApi } from './endpoints/teamscores';
 export { ContestsApi } from './endpoints/contests';
 export { RawDataApi } from './endpoints/rawdata';
 export { AgeGroupsApi, type AgeGroup } from './endpoints/agegroups';
